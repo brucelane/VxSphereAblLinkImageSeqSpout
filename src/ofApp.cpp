@@ -47,7 +47,7 @@ void ofApp::setup() {
 	fftFile.setMirrorData(false);
 	fftFile.setup();
 
-	soundPlayer.loadSound("Massactiv_Master [2019-04-30 050601].wav");
+	soundPlayer.loadSound("MSML (version instru lIve) _ MEKANISM AUDIOLAB MASTERING 16 BITS 44100HZ.wav");
 	soundPlayer.play();
 	factor = 1.0f;
 }
