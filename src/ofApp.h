@@ -50,4 +50,5 @@ private:
 	float audioValue;
 	float factor;
 	float maxHeight;
+	float angle;
 };

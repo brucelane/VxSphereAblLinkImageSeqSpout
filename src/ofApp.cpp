@@ -35,8 +35,8 @@ void ofApp::setup() {
 	audioPeakDecay = 0.915;
 	audioMaxDecay = 0.995;
 	audioMirror = false;
-	colormap.loadImage("p0001.jpg");
-	bumpmap.loadImage("p0001.jpg");
+	colormap.loadImage("p (1).jpg");
+	bumpmap.loadImage("p (1).jpg");
 
 	quadric = gluNewQuadric();
 	gluQuadricTexture(quadric, GL_TRUE);
@@ -74,7 +74,7 @@ void ofApp::update() {
 	//	factor = 0.0f;
 	//}
 	//factor = ofMap(mouseY, 0.0f, ofGetHeight(), -1.0f, 1.0f);
-	ofSetWindowTitle( "img: " + ofToString(imgIndex, 2) + " mult: " + ofToString(factor, 2) + " - " + ofToString(audioValue, 2) + " - " + ofToString(ofGetFrameNum(), 2));
+	ofSetWindowTitle("angle: " + ofToString(angle, 2) + "img: " + ofToString(imgIndex, 2) + " mult: " + ofToString(factor, 2) + " - " + ofToString(audioValue, 2) + " - " + ofToString(ofGetFrameNum(), 2));
 
 }
 
@@ -96,7 +96,7 @@ void ofApp::draw() {
 	*/
 	ofSetColor(255);
 
-	maxHeight = audioValue * 30 * factor + ofGetFrameNum() / 200;
+	maxHeight = audioValue * 50 * factor + ofGetFrameNum() / 200;
 	fbo.begin();
 	ofClear(0, 0, 0, 0);
 	ofPushMatrix();
@@ -109,7 +109,8 @@ void ofApp::draw() {
 	shader.setUniform1f("maxHeight", maxHeight);
 	//shader.setUniform1f("factor", factor);
 	ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
-	ofRotateY(360 * sinf(float(ofGetFrameNum()) / 500.0f));
+	angle = 360 + (mouseX / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);
+	ofRotateY(angle);
 	ofRotate(-90, 1, 0, 0);
 	//gluSphere(quadric, 150, 400, 400);
 	gluSphere(quadric, 100 + ofGetFrameNum() / 200, 400, 400);
@@ -122,18 +123,25 @@ void ofApp::draw() {
 	spout.sendTexture(fbo.getTexture(), "vxSphere");
 	fbo.draw(0, 0, targetWidth, targetHeight);
 	//image.draw(200, 100);	
-	ofSetColor(0);
-	ofDrawBitmapString("Tempo: " + ofToString(link.tempo()) + " Beats: " + ofToString(status.beat) + " Phase: " + ofToString(status.phase), 20, 20);
-	ofDrawBitmapString("Number of peers: " + ofToString(link.numPeers()), 20, 40);
+	//ofSetColor(0);
+	//ofDrawBitmapString("Tempo: " + ofToString(link.tempo()) + " Beats: " + ofToString(status.beat) + " Phase: " + ofToString(status.phase), 20, 20);
+	//ofDrawBitmapString("Number of peers: " + ofToString(link.numPeers()), 20, 40);
 }
 void ofApp::loadImage() {
 	bool bFileThere = false;
-	string fileName = "p000" + ofToString(imgIndex) + ".jpg";
+	string fileName = "p (" + ofToString(imgIndex) + ").jpg";
+	/*if (imgIndex < 10) {
+		fileName = "p000" + ofToString(imgIndex) + ".jpg";
+	}
+	else {
+		fileName = "p00" + ofToString(imgIndex) + ".jpg";
+	} */
+
 	fstream fin;
 	string fileNameInOF = ofToDataPath(fileName); // since OF files are in the data directory, we need to do this  
 	fin.open(fileNameInOF.c_str(), ios::in);
 	if (fin.is_open()) {
-		cout << "file exists" << endl;
+		cout << " file exists" << endl;
 		bFileThere = true;
 	}
 	fin.close();
@@ -141,7 +149,7 @@ void ofApp::loadImage() {
 		colormap.loadImage(fileName);
 		bumpmap.loadImage(fileName);
 	}
-		
+
 }
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
@@ -155,7 +163,7 @@ void ofApp::keyPressed(int key) {
 		imgIndex--;
 		if (imgIndex < 1) imgIndex = 1;
 		loadImage();
-	}	
+	}
 	else if (key == OF_KEY_UP) {
 		//link.setTempo(link.tempo() + 1);
 		factor++;
