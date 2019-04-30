@@ -2,6 +2,20 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
+	ofSetLogLevel(OF_LOG_VERBOSE);
+	// load settings.xml
+	if (settings.loadFile("settings.xml") == false) {
+		ofLog() << "settings.xml not found";
+	}
+	settings.pushTag("settings");
+	targetWidth = settings.getValue("targetWidth", 1280);
+	targetHeight = settings.getValue("targetHeight", 720);
+	ofLogNotice("targetWidth: " + ofToString(targetWidth) + " targetHeight: " + ofToString(targetHeight));
+	fbo.allocate(targetWidth, targetHeight);
+	fbo.begin();
+	ofClear(0, 0, 0, 0);
+	fbo.end();
+
 	link.setup(120);
 
 	for (int i = 1; i <= 3; i++) {
@@ -80,22 +94,28 @@ void ofApp::draw() {
 	ofSetColor(255);
 
 	maxHeight = audioValue * 300 + ofGetFrameNum() / 200;
+	fbo.begin();
+	ofClear(0, 0, 0, 0);
 	ofPushMatrix();
+
 	shader.begin();
 	shader.setUniformTexture("colormap", colormap, 1);
 	shader.setUniformTexture("bumpmap", bumpmap, 2);
 	shader.setUniform1f("maxHeight", maxHeight);
 	//shader.setUniform1f("factor", factor);
-
 	ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
 	ofRotateY(360 * sinf(float(ofGetFrameNum()) / 500.0f));
-
 	ofRotate(-90, 1, 0, 0);
 	//gluSphere(quadric, 150, 400, 400);
 	gluSphere(quadric, 100 + ofGetFrameNum() / 200, 400, 400);
-
 	shader.end();
+	fbo.end();
+
 	ofPopMatrix();
+
+
+	spout.sendTexture(fbo.getTexture(), "vxSphere");
+	fbo.draw(0, 0, targetWidth, targetHeight);
 	//ofSetColor(255);
 	ofSetColor(0);
 	ofDrawBitmapString("Tempo: " + ofToString(link.tempo()) + " Beats: " + ofToString(status.beat) + " Phase: " + ofToString(status.phase), 20, 20);
@@ -119,7 +139,9 @@ void ofApp::keyPressed(int key) {
 	if (key == ' ') soundPlayer.play();
 	if (key == 'f')	 ofSetFullscreen(true);
 }
-
+void ofApp::exit() {
+	spout.exit();
+}
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key) {
 

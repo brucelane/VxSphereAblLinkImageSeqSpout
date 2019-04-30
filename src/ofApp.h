@@ -3,6 +3,8 @@
 #include "ofMain.h"
 #include "ofxAbletonLink.h"
 #include "ofxFFTFile.h"
+#include "ofxSpout2Sender.h"
+#include "ofxXmlSettings.h"
 
 class ofApp : public ofBaseApp {
 
@@ -22,14 +24,21 @@ public:
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
-
+	void exit();
+	
 private:
 	ofxAbletonLink link;
 	vector<ofImage> images;
 
-	ofShader shader;
+
 	ofImage colormap, bumpmap;
 	GLUquadricObj *quadric;
+	// spout
+	ofxSpout2::Sender spout;
+	ofFbo 						fbo;
+	ofShader 					shader;
+	int 						targetWidth, targetHeight;
+	ofxXmlSettings 				settings;
 
 	ofSoundPlayer soundPlayer;
 	float audioThreshold;

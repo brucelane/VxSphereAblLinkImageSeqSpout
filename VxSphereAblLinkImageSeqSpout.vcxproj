@@ -96,10 +96,9 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxAbletonLink\src;..\..\..\addons\ofxAbletonLink\libs\link\include;..\..\..\addons\ofxAbletonLink\libs\link\include\ableton;..\..\..\addons\ofxAbletonLink\libs\link\modules\asio-standalone\asio\include;..\..\..\addons\ofxFFT\libs;..\..\..\addons\ofxFFT\src;
-D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\src;
-D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\include;
-D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxAbletonLink\src;..\..\..\addons\ofxAbletonLink\libs\link\include;..\..\..\addons\ofxAbletonLink\libs\link\include\ableton;..\..\..\addons\ofxAbletonLink\libs\link\modules\asio-standalone\asio\include;..\..\..\addons\ofxFFT\libs;..\..\..\addons\ofxFFT\src;D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\src;D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\include;D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\src;
+D:\Syncthing\of_v0.9.8_vs_release\addons\ofxXmlSettings\src;
+D:\Syncthing\of_v0.9.8_vs_release\addons\ofxXmlSettings\libs</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -117,10 +116,9 @@ D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\src</AdditionalIncludeDi
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxAbletonLink\src;..\..\..\addons\ofxAbletonLink\libs\link\include;..\..\..\addons\ofxAbletonLink\libs\link\include\ableton;..\..\..\addons\ofxAbletonLink\libs\link\modules\asio-standalone\asio\include;..\..\..\addons\ofxFFT\libs;..\..\..\addons\ofxFFT\src;
-D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\src;
-D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\include;
-D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxAbletonLink\src;..\..\..\addons\ofxAbletonLink\libs\link\include;..\..\..\addons\ofxAbletonLink\libs\link\include\ableton;..\..\..\addons\ofxAbletonLink\libs\link\modules\asio-standalone\asio\include;..\..\..\addons\ofxFFT\libs;..\..\..\addons\ofxFFT\src;D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\src;D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\include;D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\src;
+D:\Syncthing\of_v0.9.8_vs_release\addons\ofxXmlSettings\src;
+D:\Syncthing\of_v0.9.8_vs_release\addons\ofxXmlSettings\libs</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -138,10 +136,9 @@ D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\src</AdditionalIncludeDi
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxAbletonLink\src;..\..\..\addons\ofxAbletonLink\libs\link\include;..\..\..\addons\ofxAbletonLink\libs\link\include\ableton;..\..\..\addons\ofxAbletonLink\libs\link\modules\asio-standalone\asio\include;..\..\..\addons\ofxFFT\libs;..\..\..\addons\ofxFFT\src;
-D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\src;
-D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\include;
-D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxAbletonLink\src;..\..\..\addons\ofxAbletonLink\libs\link\include;..\..\..\addons\ofxAbletonLink\libs\link\include\ableton;..\..\..\addons\ofxAbletonLink\libs\link\modules\asio-standalone\asio\include;..\..\..\addons\ofxFFT\libs;..\..\..\addons\ofxFFT\src;D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\src;D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\include;D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\src;
+D:\Syncthing\of_v0.9.8_vs_release\addons\ofxXmlSettings\src;
+D:\Syncthing\of_v0.9.8_vs_release\addons\ofxXmlSettings\libs</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -162,10 +159,9 @@ D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\src</AdditionalIncludeDi
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxAbletonLink\src;..\..\..\addons\ofxAbletonLink\libs\link\include;..\..\..\addons\ofxAbletonLink\libs\link\include\ableton;..\..\..\addons\ofxAbletonLink\libs\link\modules\asio-standalone\asio\include;..\..\..\addons\ofxFFT\libs;..\..\..\addons\ofxFFT\src;
-D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\src;
-D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\include;
-D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxAbletonLink\src;..\..\..\addons\ofxAbletonLink\libs\link\include;..\..\..\addons\ofxAbletonLink\libs\link\include\ableton;..\..\..\addons\ofxAbletonLink\libs\link\modules\asio-standalone\asio\include;..\..\..\addons\ofxFFT\libs;..\..\..\addons\ofxFFT\src;D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\src;D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\include;D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\src;
+D:\Syncthing\of_v0.9.8_vs_release\addons\ofxXmlSettings\src;
+D:\Syncthing\of_v0.9.8_vs_release\addons\ofxXmlSettings\libs</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -191,6 +187,10 @@ D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\src</AdditionalIncludeDi
     <ClCompile Include="..\..\..\addons\ofxSpout2\libs\src\SpoutSharedMemory.cpp" />
     <ClCompile Include="..\..\..\addons\ofxSpout2\src\ofxSpout2Receiver.cpp" />
     <ClCompile Include="..\..\..\addons\ofxSpout2\src\ofxSpout2Sender.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\addons\ofxAbletonLink\src\ofxAbletonLink.cpp" />
@@ -213,6 +213,8 @@ D:\Syncthing\of_v0.9.8_vs_release\addons\ofxSpout2\libs\src</AdditionalIncludeDi
     <ClInclude Include="..\..\..\addons\ofxSpout2\libs\include\SpoutSharedMemory.h" />
     <ClInclude Include="..\..\..\addons\ofxSpout2\src\ofxSpout2Receiver.h" />
     <ClInclude Include="..\..\..\addons\ofxSpout2\src\ofxSpout2Sender.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxAbletonLink\src\ofxAbletonLink.h" />
     <ClInclude Include="..\..\..\addons\ofxFFT\src\ofxFFTBase.h" />

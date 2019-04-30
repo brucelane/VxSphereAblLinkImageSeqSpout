@@ -1,3 +1,4 @@
+ofxXmlSettings
 ofxAbletonLink
 ofxFFT
 ofxSpout2
