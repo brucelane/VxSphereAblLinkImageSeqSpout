@@ -28,10 +28,11 @@ public:
 	
 private:
 	ofxAbletonLink link;
-	vector<ofImage> images;
+	//vector<ofImage> images;
 
 
 	ofImage colormap, bumpmap;
+	int imgIndex;
 	GLUquadricObj *quadric;
 	// spout
 	ofxSpout2::Sender spout;
