@@ -126,20 +126,36 @@ void ofApp::draw() {
 	ofDrawBitmapString("Tempo: " + ofToString(link.tempo()) + " Beats: " + ofToString(status.beat) + " Phase: " + ofToString(status.phase), 20, 20);
 	ofDrawBitmapString("Number of peers: " + ofToString(link.numPeers()), 20, 40);
 }
-
+void ofApp::loadImage() {
+	bool bFileThere = false;
+	string fileName = "p000" + ofToString(imgIndex) + ".jpg";
+	fstream fin;
+	string fileNameInOF = ofToDataPath(fileName); // since OF files are in the data directory, we need to do this  
+	fin.open(fileNameInOF.c_str(), ios::in);
+	if (fin.is_open()) {
+		cout << "file exists" << endl;
+		bFileThere = true;
+	}
+	fin.close();
+	if (bFileThere) {
+		colormap.loadImage(fileName);
+		bumpmap.loadImage(fileName);
+	}
+		
+}
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
 	if (key == OF_KEY_RIGHT) {
 		//link.setQuantum(link.quantum() + 1);
 		imgIndex++;
-		colormap.loadImage("p000" + ofToString(imgIndex) + ".jpg");
-		bumpmap.loadImage("p000" + ofToString(imgIndex) + ".jpg");	}
+		loadImage();
+	}
 	else if (key == OF_KEY_LEFT) {
 		//link.setQuantum(link.quantum() - 1);
 		imgIndex--;
 		if (imgIndex < 1) imgIndex = 1;
-		colormap.loadImage("p000" + ofToString(imgIndex) + ".jpg");
-		bumpmap.loadImage("p000" + ofToString(imgIndex) + ".jpg");	}
+		loadImage();
+	}	
 	else if (key == OF_KEY_UP) {
 		//link.setTempo(link.tempo() + 1);
 		factor++;

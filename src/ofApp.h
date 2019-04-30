@@ -29,7 +29,7 @@ public:
 private:
 	ofxAbletonLink link;
 	//vector<ofImage> images;
-
+	void loadImage();
 
 	ofImage colormap, bumpmap;
 	int imgIndex;
