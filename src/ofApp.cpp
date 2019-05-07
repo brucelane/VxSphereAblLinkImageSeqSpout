@@ -4,8 +4,8 @@
 void ofApp::setup() {
 	ofSetLogLevel(OF_LOG_VERBOSE);
 	// load settings.xml
-	if (settings.loadFile("settings.xml") == false) {
-		ofLog() << "settings.xml not found";
+	if (settings.loadFile("vxsphere.xml") == false) {
+		ofLog() << "vxsphere.xml not found";
 	}
 	settings.pushTag("settings");
 	targetWidth = settings.getValue("targetWidth", 1280);
