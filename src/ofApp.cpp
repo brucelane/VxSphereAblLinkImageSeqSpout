@@ -1,5 +1,5 @@
 #include "ofApp.h"
-
+// idees passer du logo 2d à 3D
 //--------------------------------------------------------------
 void ofApp::setup() {
 	ofSetLogLevel(OF_LOG_VERBOSE);
@@ -35,8 +35,8 @@ void ofApp::setup() {
 	audioPeakDecay = 0.915;
 	audioMaxDecay = 0.995;
 	audioMirror = false;
-	colormap.loadImage("p (1).jpg");
-	bumpmap.loadImage("p (1).jpg");
+	colormap.loadImage("p-(1).jpg");
+	bumpmap.loadImage("p-(1).jpg");
 
 	quadric = gluNewQuadric();
 	gluQuadricTexture(quadric, GL_TRUE);
@@ -74,7 +74,7 @@ void ofApp::update() {
 	//	factor = 0.0f;
 	//}
 	//factor = ofMap(mouseY, 0.0f, ofGetHeight(), -1.0f, 1.0f);
-	ofSetWindowTitle("angle: " + ofToString(angle, 2) + "img: " + ofToString(imgIndex, 2) + " mult: " + ofToString(factor, 2) + " - " + ofToString(audioValue, 2) + " - " + ofToString(ofGetFrameNum(), 2));
+	ofSetWindowTitle("angle: " + ofToString(angleX, 2) + "img: " + ofToString(imgIndex, 2) + " mult: " + ofToString(factor, 2) + " - " + ofToString(audioValue, 2) + " - " + ofToString(ofGetFrameNum(), 2));
 
 }
 
@@ -100,17 +100,21 @@ void ofApp::draw() {
 	fbo.begin();
 	ofClear(0, 0, 0, 0);
 	ofPushMatrix();
-
+	twod.set(0.30, 0.59, 0.11);
+	//twod.set(0.0, 0.0, 0.0);
 	shader.begin();
 	shader.setUniformTexture("colormap", colormap, 1);
 	shader.setUniformTexture("bumpmap", bumpmap, 2);
 	//shader.setUniformTexture("colormap", image, 1);
 	//shader.setUniformTexture("bumpmap", image, 2);
 	shader.setUniform1f("maxHeight", maxHeight);
+	shader.setUniform3f("twod", twod);
 	//shader.setUniform1f("factor", factor);
 	ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
-	angle = 360 + (mouseX / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);
-	ofRotateY(angle);
+	angleX = 360 + (mouseX / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);
+	angleY = 360 + (mouseY / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);
+	ofRotateY(angleX);
+	ofRotateX(angleY);
 	ofRotate(-90, 1, 0, 0);
 	//gluSphere(quadric, 150, 400, 400);
 	gluSphere(quadric, 100 + ofGetFrameNum() / 200, 400, 400);
@@ -129,7 +133,7 @@ void ofApp::draw() {
 }
 void ofApp::loadImage() {
 	bool bFileThere = false;
-	string fileName = "p (" + ofToString(imgIndex) + ").jpg";
+	string fileName = "p-(" + ofToString(imgIndex) + ").jpg";
 	/*if (imgIndex < 10) {
 		fileName = "p000" + ofToString(imgIndex) + ".jpg";
 	}
