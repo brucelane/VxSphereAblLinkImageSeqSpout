@@ -47,8 +47,8 @@ void ofApp::setup() {
 	fftFile.setMirrorData(false);
 	fftFile.setup();
 
-	soundPlayer.loadSound("MSML (version instru lIve) _ MEKANISM AUDIOLAB MASTERING 16 BITS 44100HZ.wav");
-	soundPlayer.play();
+	soundPlayer.loadSound("massactivextrait.wav");
+	//soundPlayer.play();
 	factor = 1.0f;
 }
 
@@ -109,15 +109,17 @@ void ofApp::draw() {
 	//shader.setUniformTexture("bumpmap", image, 2);
 	shader.setUniform1f("maxHeight", maxHeight);
 	shader.setUniform3f("twod", twod);
+	shader.setUniform1f("time", ofGetElapsedTimef());
 	//shader.setUniform1f("factor", factor);
-	ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
+	//ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
+	ofTranslate(targetWidth / 2, targetHeight / 2);
 	angleX = 360 + (mouseX / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);
 	angleY = 360 + (mouseY / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);
 	ofRotateY(angleX);
 	ofRotateX(angleY);
 	ofRotate(-90, 1, 0, 0);
 	//gluSphere(quadric, 150, 400, 400);
-	gluSphere(quadric, 100 + ofGetFrameNum() / 200, 400, 400);
+	gluSphere(quadric, 100 + ofGetFrameNum() / 200, 400, 400); //200 taille sphere
 	shader.end();
 	fbo.end();
 
