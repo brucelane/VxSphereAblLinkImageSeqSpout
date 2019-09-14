@@ -119,7 +119,7 @@ void ofApp::draw() {
 	ofRotateX(angleY);
 	ofRotate(-90, 1, 0, 0);
 	//gluSphere(quadric, 150, 400, 400);
-	gluSphere(quadric, 100 + ofGetFrameNum() / 200, 400, 400); //200 taille sphere
+	gluSphere(quadric, 300 + ofGetFrameNum() / 200, 400, 400); //300 taille sphere
 	shader.end();
 	fbo.end();
 
