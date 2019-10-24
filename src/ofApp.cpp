@@ -47,9 +47,12 @@ void ofApp::setup() {
 	fftFile.setMirrorData(false);
 	fftFile.setup();
 
-	soundPlayer.loadSound("massactivextrait.wav");
+	soundPlayer.loadSound("humanetpreview.wav");
 	//soundPlayer.play();
 	factor = 1.0f;
+	angleX = 0.0f;
+	angleY = 0.0f;
+	startTime = 120000000.0f;
 }
 
 //--------------------------------------------------------------
@@ -80,7 +83,7 @@ void ofApp::update() {
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-	ofxAbletonLink::Status status = link.update();
+	//ofxAbletonLink::Status status = link.update();
 
 	// visualize the current status
 	/*int quantum = (int)ceil(link.quantum());
@@ -108,18 +111,28 @@ void ofApp::draw() {
 	//shader.setUniformTexture("colormap", image, 1);
 	//shader.setUniformTexture("bumpmap", image, 2);
 	shader.setUniform1f("maxHeight", maxHeight);
-	shader.setUniform3f("twod", twod);
-	shader.setUniform1f("time", ofGetElapsedTimef());
+	shader.setUniform3f("twod", twod); 
+	currentTime =  ofGetElapsedTimef() - startTime;
+	if ( currentTime < 25.7f) {
+		shader.setUniform1f("time", 0.0f);
+		angleX = 0.0f;
+		angleY = 0.0f;
+		ofTranslate(targetWidth / 2, targetHeight / 2);
+	}
+	else {
+		shader.setUniform1f("time", currentTime);
+		angleX = 360.0f + (mouseX / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);
+		angleY = 360.0f + (mouseY / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);	
+		ofTranslate(targetWidth / 2, targetHeight / 2);
+	}
 	//shader.setUniform1f("factor", factor);
 	//ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
-	ofTranslate(targetWidth / 2, targetHeight / 2);
-	angleX = 360 + (mouseX / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);
-	angleY = 360 + (mouseY / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);
+
 	ofRotateY(angleX);
 	ofRotateX(angleY);
 	ofRotate(-90, 1, 0, 0);
 	//gluSphere(quadric, 150, 400, 400);
-	gluSphere(quadric, 300 + ofGetFrameNum() / 200, 400, 400); //300 taille sphere
+	gluSphere(quadric, 200 + ofGetFrameNum() / 200, 400, 400); //300 taille sphere
 	shader.end();
 	fbo.end();
 
@@ -179,7 +192,10 @@ void ofApp::keyPressed(int key) {
 		factor--;
 		if (factor < 1) factor = 1;
 	}
-	if (key == ' ') soundPlayer.play();
+	if (key == ' ') {
+		startTime = ofGetElapsedTimef();
+		soundPlayer.play();
+	} 
 	//if (key == 'f')	 ofSetFullscreen(true);
 
 

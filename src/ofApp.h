@@ -53,4 +53,6 @@ private:
 	ofVec3f  twod;
 	float angleX;
 	float angleY;
+	float startTime;
+	float currentTime;
 };
