@@ -52,7 +52,8 @@ void ofApp::setup() {
 	factor = 1.0f;
 	angleX = 0.0f;
 	angleY = 0.0f;
-	startTime = 120000000.0f;
+	startTime = 1200.0f;
+	isPlaying = false;
 }
 
 //--------------------------------------------------------------
@@ -111,18 +112,24 @@ void ofApp::draw() {
 	//shader.setUniformTexture("colormap", image, 1);
 	//shader.setUniformTexture("bumpmap", image, 2);
 	shader.setUniform1f("maxHeight", maxHeight);
-	shader.setUniform3f("twod", twod); 
-	currentTime =  ofGetElapsedTimef() - startTime;
-	if ( currentTime < 25.7f) {
-		shader.setUniform1f("time", 0.0f);
-		angleX = 0.0f;
-		angleY = 0.0f;
-		ofTranslate(targetWidth / 2, targetHeight / 2);
+	shader.setUniform3f("twod", twod);
+	if (isPlaying) {
+		currentTime = ofGetElapsedTimef() - startTime;
 	}
 	else {
+		currentTime = 0.0f;
+	}
+	if (currentTime < 25.7f) {
 		shader.setUniform1f("time", currentTime);
+		angleX = 0.0f;
+		angleY = 90.0f;
+		//ofTranslate(targetWidth / 2, targetHeight / 2);
+		ofTranslate(ofLerp( targetWidth / 4, targetWidth / 2, currentTime/50), ofLerp( targetHeight, targetHeight / 2, currentTime/50));
+	}
+	else {
+		shader.setUniform1f("time", 40.0f);
 		angleX = 360.0f + (mouseX / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);
-		angleY = 360.0f + (mouseY / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);	
+		angleY = 360.0f + (mouseY / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);
 		ofTranslate(targetWidth / 2, targetHeight / 2);
 	}
 	//shader.setUniform1f("factor", factor);
@@ -132,7 +139,7 @@ void ofApp::draw() {
 	ofRotateX(angleY);
 	ofRotate(-90, 1, 0, 0);
 	//gluSphere(quadric, 150, 400, 400);
-	gluSphere(quadric, 200 + ofGetFrameNum() / 200, 400, 400); //300 taille sphere
+	gluSphere(quadric, 160 + ofGetFrameNum() / 200, 400, 400); //300 taille sphere
 	shader.end();
 	fbo.end();
 
@@ -193,9 +200,10 @@ void ofApp::keyPressed(int key) {
 		if (factor < 1) factor = 1;
 	}
 	if (key == ' ') {
+		isPlaying = true;
 		startTime = ofGetElapsedTimef();
 		soundPlayer.play();
-	} 
+	}
 	//if (key == 'f')	 ofSetFullscreen(true);
 
 

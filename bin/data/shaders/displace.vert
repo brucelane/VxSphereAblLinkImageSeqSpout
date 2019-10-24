@@ -1,4 +1,4 @@
-/*uniform sampler2D colormap;
+uniform sampler2D colormap;
 uniform sampler2D bumpmap;
 varying vec2  TexCoord;
 uniform float maxHeight;
@@ -20,10 +20,11 @@ void main(void) {
 	//newVertexPos = mix(newVertexPos, vec4(TexCoord * vec2(0.5,-0.5), 0.5, 0.5), 1.0);
 	//newVertexPos = vec4(TexCoord * vec2(1.0,1.0), 0.0, 0.1);
 	//newVertexPos = mix(newVertexPos, vec4(TexCoord*vec2(1,-1) * 100, 0, 1), 1);
-	newVertexPos = mix(newVertexPos, vec4(TexCoord*vec2(1,-1) * 800.0, 0.0, 1.0),  fract( (40.0 - time) * 0.1));
+	newVertexPos = mix(newVertexPos, vec4(TexCoord*vec2(1,-1) * 800.0, 0.0, 1.0), fract( (40.0 - time) * 0.02));
+	//newVertexPos = vec4(TexCoord*vec2(1,-1) * 800.0, 0.0, 1.0);
 	gl_Position = gl_ModelViewProjectionMatrix * newVertexPos;
 }
-*/
+/*
 uniform sampler2D colormap;
 uniform sampler2D bumpmap;
 varying vec2  TexCoord;
@@ -48,4 +49,4 @@ void main(void) {
 	//newVertexPos = mix(newVertexPos, vec4(TexCoord*vec2(1,-1) * 100, 0, 1), 1);
 	//newVertexPos = mix(newVertexPos, vec4(TexCoord*vec2(1,-1) * 800.0, 0.0, 1.0),  fract(time*0.1));
 	gl_Position = gl_ModelViewProjectionMatrix * newVertexPos;
-}
+}*/

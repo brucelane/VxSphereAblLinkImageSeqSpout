@@ -55,4 +55,5 @@ private:
 	float angleY;
 	float startTime;
 	float currentTime;
+	bool isPlaying;
 };
