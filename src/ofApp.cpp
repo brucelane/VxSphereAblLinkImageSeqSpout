@@ -47,11 +47,12 @@ void ofApp::setup() {
 	fftFile.setMirrorData(false);
 	fftFile.setup();
 
-	soundPlayer.loadSound("humanetpreview.wav");
+	soundPlayer.loadSound("humanet.wav");
 	//soundPlayer.play();
 	factor = 1.0f;
-	angleX = 0.0f;
+	angleX = 180.0f;
 	angleY = 0.0f;
+	angleZ = 180.0f;
 	startTime = 1200.0f;
 	isPlaying = false;
 }
@@ -123,6 +124,7 @@ void ofApp::draw() {
 		shader.setUniform1f("time", currentTime);
 		angleX = 0.0f;
 		angleY = 90.0f;
+		angleZ = 180.0f;
 		//ofTranslate(targetWidth / 2, targetHeight / 2);
 		ofTranslate(ofLerp( targetWidth / 4, targetWidth / 2, currentTime/50), ofLerp( targetHeight, targetHeight / 2, currentTime/50));
 	}
@@ -130,6 +132,7 @@ void ofApp::draw() {
 		shader.setUniform1f("time", 40.0f);
 		angleX = 360.0f + (mouseX / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);
 		angleY = 360.0f + (mouseY / 1.0 + 0.01) * sinf(float(ofGetFrameNum()) / 500.0f);
+		angleZ = 0.0f;
 		ofTranslate(targetWidth / 2, targetHeight / 2);
 	}
 	//shader.setUniform1f("factor", factor);

@@ -53,6 +53,7 @@ private:
 	ofVec3f  twod;
 	float angleX;
 	float angleY;
+	float angleZ;
 	float startTime;
 	float currentTime;
 	bool isPlaying;
